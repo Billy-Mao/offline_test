@@ -22,8 +22,10 @@ int main (int argc, char** argv)
 	//std::string Path2sdk = "E:/Data/DHS_Project/" + DataName + "/" + TestName + "/dji_sdk/";
 	//std::string Path2pcd = "C:/Users/yanyujie0824/Documents/PHD_workspace/cpp_mapping/cpp_test2_10spr_1200RPM/pcds/";
 	//std::string Path2sdk = "C:/Users/yanyujie0824/Documents/PHD_workspace/cpp_mapping/cpp_test2_10spr_1200RPM/dji_sdk/";
-         std::string Path2pcd = "/home/billymao/Desktop/Zhong_ws/OfflineMapping_basic/Data/pcds/";
-         std::string Path2sdk = "/home/billymao/Desktop/Zhong_ws/OfflineMapping_basic/Data/dji_sdk/";
+        // std::string Path2pcd = "/home/billymao/Desktop/Zhong_ws/OfflineMapping_basic/Data/pcds/";
+	//std::string Path2sdk = "/home/billymao/Desktop/Zhong_ws/OfflineMapping_basic/Data/dji_sdk/";
+         std::string Path2pcd = "/home/ubuntu/offline_mapping/Data/pcds/";
+	 std::string Path2sdk = "/home/ubuntu/offline_mapping/Data/dji_sdk/";
 
 
 
@@ -68,7 +70,7 @@ int main (int argc, char** argv)
 	Eigen::Matrix4d RR_init, rotm1, rotm2, RRi;
 	pcl::VoxelGrid<pcl::PointXYZ> sor;
 
-	std::string path2map = "/home/billymao/Desktop/Zhong_ws/OfflineMapping_basic/Data/map_v2p.pcd";
+	std::string path2map = "/home/ubuntu/offline_mapping/Data/map_v2p.pcd";
     pcl::io::loadPCDFile (path2map, *map);
 	sor.setInputCloud(map);
 	sor.setLeafSize(0.15f, 0.15f, 0.15f);
@@ -194,7 +196,7 @@ int main (int argc, char** argv)
 		//=============================End===========================================
 	}
 	name_out = "OfflineMap.pcd";
-	name_out = "/home/billymao/Desktop/Zhong_ws/OfflineMapping_basic/output_map/" + name_out;
+	name_out = "/home/ubuntu/offline_mapping/output_map/" + name_out;
 	pcl::io::savePCDFile (name_out, *map, true);
 	return 0;
 }
